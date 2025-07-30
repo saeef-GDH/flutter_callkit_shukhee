@@ -133,6 +133,7 @@ class CallkitIncomingBroadcastReceiver : BroadcastReceiver() {
                 try {
                     // clear notification
                     callkitNotificationManager?.clearIncomingNotification(data, false)
+                    sendCallEvent(CallkitConstants.ACTION_CALL_DECLINE)
                     sendEventFlutter(CallkitConstants.ACTION_CALL_DECLINE, data)
                     removeCall(context, Data.fromBundle(data))
                 } catch (error: Exception) {
@@ -250,5 +251,9 @@ class CallkitIncomingBroadcastReceiver : BroadcastReceiver() {
             "android" to android
         )
         FlutterCallkitIncomingPlugin.sendEvent(event, forwardData)
+    }
+
+    private fun sendCallEvent(action: String) {
+        Log.d(TAG, "$action from send call event method ")
     }
 }

@@ -2,7 +2,7 @@ group 'com.example.flutter_callkit_incoming'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.8.0'
+    ext.kotlin_version = '2.1.0'
     repositories {
         google()
         mavenCentral()
@@ -12,7 +12,7 @@ buildscript {
         //classpath 'com.android.tools.build:gradle:4.1.0'
         //classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         
-        classpath 'com.android.tools.build:gradle:7.1.2'
+        classpath 'com.android.tools.build:gradle:7.3.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -33,6 +33,12 @@ android {
     if (project.android.hasProperty("namespace")) {
         namespace "com.hiennv.flutter_callkit_incoming"
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
     
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
